@@ -1,0 +1,8 @@
+<a href="#"  data-trigger="hover" rel="popover" data-original-title="$user.name" data-content="
+$user.address.lineOne<br/>
+$user.address.town<br/>
+$user.address.postCode<br/>
+<br/>
+$user.phoneNumber<br/>">
+More
+</a>

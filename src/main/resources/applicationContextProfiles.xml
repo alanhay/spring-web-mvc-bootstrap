@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<beans profile="default">
+		<bean id="applicationPropertiesPlaceholder"
+			class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+			<property name="locations">
+				<list>
+					<value>classpath:profiles/common.profile.properties</value>
+					<value>classpath:profiles/local.profile.properties</value>
+				</list>
+			</property>
+		</bean>
+	</beans>
+	
+	<beans profile="local">
+		<bean id="applicationPropertiesPlaceholder"
+			class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+			<property name="locations">
+				<list>
+					<value>classpath:profiles/common.profile.properties</value>
+					<value>classpath:profiles/local.profile.properties</value>
+				</list>
+			</property>
+		</bean>
+	</beans>
+
+	<beans profile="trial">
+		<bean id="applicationPropertiesPlaceholder"
+			class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+			<property name="locations">
+				<list>
+					<value>classpath:profiles/common.profile.properties</value>
+					<value>classpath:profiles/trial.profile.properties</value>
+				</list>
+			</property>
+		</bean>
+	</beans>
+
+	<beans profile="live">
+		<bean id="applicationPropertiesPlaceholder"
+			class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+			<property name="locations">
+				<list>
+					<value>classpath:profiles/common.profile.properties</value>
+					<value>classpath:profiles/live.profile.properties</value>
+				</list>
+			</property>
+		</bean>
+	</beans>
+
+</beans>

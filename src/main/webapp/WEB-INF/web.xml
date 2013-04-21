@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	<display-name>My Web Application</display-name>
+
+	<servlet>
+		<servlet-name>mvc-dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/applicationContextServlet.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>mvc-dispatcher</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+	    <servlet-name>mvc-dispatcher</servlet-name>
+	    <url-pattern>/flows/*</url-pattern>
+	</servlet-mapping>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath:applicationContextProfiles.xml,
+			classpath:applicationContextSecurity.xml,
+			classpath:applicationContextDatasource.xml,
+			classpath:applicationContextRepository.xml,
+			classpath:applicationContextService.xml
+		</param-value>
+	</context-param>
+
+	<filter>
+	    <filter-name>oemInViewFilter</filter-name>
+	    <filter-class>
+	    	org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter
+	    </filter-class>
+	    <init-param>
+	        <param-name>entityManagerFactoryBeanName</param-name>
+	        <param-value>entityManagerFactory</param-value>
+	    </init-param>
+	</filter>
+
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	
+	<filter>
+		<filter-name>sitemesh</filter-name>
+		<filter-class>uk.co.certait.spring.web.filter.AjaxExcludingSiteMeshFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>oemInViewFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>sitemesh</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	
+	<listener>
+       <listener-class>
+          org.springframework.web.context.ContextLoaderListener
+       </listener-class>
+  	</listener>
+  	
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>JSP Files</web-resource-name>
+			<description>No direct access to JSP files</description>
+			<url-pattern>/pages/*</url-pattern>
+			<http-method>POST</http-method>
+			<http-method>GET</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<description>No direct browser access to JSP files</description>
+			<role-name>NobodyHasThisRole</role-name>
+		</auth-constraint>
+	</security-constraint> 
+  	
+  	<welcome-file-list>
+  		<welcome-file>/public/loadHome.do</welcome-file>
+  	</welcome-file-list>
+
+</web-app>
