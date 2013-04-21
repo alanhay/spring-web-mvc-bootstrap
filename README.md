@@ -19,10 +19,11 @@ Deploying to Heroku
 [1] Create a new Heroku Application
 [2] Add the ClearDB Database plugin
 [3] Add the SendGrid Email plugin
-[4] Add a new git remote: git remote add web-trial git@heroku.com:{my_heroku_app_name}.git
+[4] Add a new git remote: git remote add {remote_alias} git@heroku.com:{my_heroku_app_name}.git
 [5] Add a new environment variable to the Heroku app named 'spring.profiles.active' with a value of 'trial'
 [6] Create a copy of the file src\main\resources\trial.profile.properties.template named trial.profile.properties in the same directory
 [7] Populate the database and SMTP settings in trial.profile.properties with your ClearDB and SendGrid details.
+[8] Deploy to Heroku using the remote alias created in step [4]. 
 
 Non-Repository Dependencies
 ===========================
