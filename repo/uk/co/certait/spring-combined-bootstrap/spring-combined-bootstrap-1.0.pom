@@ -8,11 +8,11 @@
 	<name>spring-combined-bootsrap</name>
 	<description>Parent Project for the 3 Spring Modules</description>
 
-	<modules>
+<!-- 	<modules>
 		<module>../spring-data-jpa-bootstrap</module>
 		<module>../spring-service-bootstrap</module>
 		<module>../spring-web-mvc-bootstrap</module>
-	</modules>
+	</modules> -->
 
 	<!-- DEFINE COMMON PROPERTIES -->
 	<properties>
