@@ -8,8 +8,7 @@
 	<parent>
 		<groupId>uk.co.certait</groupId>
 		<artifactId>spring-combined-bootstrap</artifactId>
-		<version>1.0.1</version>
-		<relativePath/>
+		<version>1.0</version>
 	</parent>
 
 	<dependencies>
@@ -287,14 +286,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-	<!-- File based Maven Repository for Heroku. Allows us to bundle libraries (such as our Service 
-		and Repository modules) not available in any public repository. -->
-	<repositories>
-		<repository>
-			<id>project.local</id>
-			<name>project</name>
-			<url>file:${project.basedir}/repo</url>
-		</repository>
-	</repositories>
 </project>
