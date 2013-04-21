@@ -4,11 +4,11 @@ logging.level=DEBUG
 
 #CORE DATABASE
 database.driver=com.mysql.jdbc.Driver
-database.server=
-database.name=bootstrap_test
+database.server=us-cdbr-east-03.cleardb.com
+database.name=
 database.port=3306
-database.user=root
-database.password=password
+database.user=
+database.password=
 
 #HIBERNATE SETTINGS
 hibernate.dialect=uk.co.certait.spring.data.util.Mysql5BitBooleanDialect
