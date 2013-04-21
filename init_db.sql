@@ -1,3 +1,45 @@
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : heroku_web_bootstrap_trial
+Source Server Version : 50528
+
+Target Server Type    : MYSQL
+Target Server Version : 50528
+File Encoding         : 65001
+
+Date: 2013-04-21 18:34:54
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `users`
+-- ----------------------------
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `version` int(11) NOT NULL,
+  `address_line_one` varchar(40) NOT NULL,
+  `address_line_two` varchar(40) DEFAULT NULL,
+  `post_code` varchar(8) NOT NULL,
+  `town` varchar(30) NOT NULL,
+  `date_of_birth` date NOT NULL,
+  `deleted` tinyint(1) NOT NULL,
+  `email_address` varchar(50) NOT NULL,
+  `forename` varchar(25) NOT NULL,
+  `gender` varchar(1) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `password_expired` tinyint(1) NOT NULL,
+  `phone_number` varchar(15) NOT NULL,
+  `registration_date` datetime NOT NULL,
+  `surname` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email_address` (`email_address`) USING BTREE,
+  KEY `user_surname_index` (`surname`) USING BTREE,
+  KEY `user_town_index` (`town`) USING BTREE,
+  KEY `user_email_address_index` (`email_address`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=166 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of users
@@ -5,7 +47,6 @@
 INSERT INTO `users` VALUES ('2', '1', '12 High Street', null, 'EH1 1HH', 'Edinburgh', '1970-01-01', '0', 'jim@henderson.com', 'Jimmy', 'M', '$2a$10$Pnv1QOGT5j5K78zUwI7bUOBWB9WlaW9nnGec409wKe6w0FG/LSO9m', '0', '07765767654', '2013-04-12 18:37:12', 'Henderson');
 INSERT INTO `users` VALUES ('3', '3', '15 Main Street', null, 'EH12 1HG', 'Haddington', '1952-08-01', '0', 'jack@jones.net', 'Jack', 'M', '$2a$10$WkJm/DmXW5tzMeHpV3CZl.6t9P9n8wag98IgMMqkYQ.XHoDqQ4ubG', '1', '01415465455', '2013-04-04 18:37:15', 'Jones');
 INSERT INTO `users` VALUES ('4', '2', '12 High Row', null, 'E21 3HG', 'London', '2013-04-03', '0', 'john@smith.net', 'John', 'M', '$2a$10$zSQEO2m3cX9/Ef6.H9QsZOm1t7dU61tMbf/Wy42bemG9AYKJgnWFu', '0', '09877676767', '2013-04-03 19:38:00', 'Smith');
-INSERT INTO `users` VALUES ('8', '3', '21 Main Street', null, 'EH21 6HY', 'Edinburgh', '2013-04-04', '0', 'jean@hay.net', 'Jean', 'F', '$2a$10$yoX1YpRBuBTf506t4MWPo.yKmsVdTx2YFHXaa.db/Ra96Y9lgMAnq', '0', '01316542542', '2013-04-04 18:41:18', 'Hay');
 INSERT INTO `users` VALUES ('10', '0', '21 London Road', null, 'EH32 8RT', 'East Calder', '1998-01-01', '0', 'james@allen.net', 'James', 'M', 'password', '0', '01312232323', '2013-04-09 00:00:00', 'Allen');
 INSERT INTO `users` VALUES ('11', '0', '18 Kings Road', null, 'E21 8TY', 'Ealing', '1996-07-06', '0', 'helen@mackay', 'Helen', 'F', 'password', '0', '01214354342', '2013-04-14 19:15:19', 'Mackay');
 INSERT INTO `users` VALUES ('12', '1', 'Fifth Way', null, 'SM13 0MR', 'Bristol', '2005-12-31', '0', 'Dick.Whitehurst@dolfijn.us', 'Guus', 'F', 'A17Ze1wDbil2jrGVfqPJaU5UofRq6EQq4TgNqHavtypa7Il5XKBryfzdMINtngBG7Nu4fvLWXUJGYLvL4YhNnvVqGN7xZwXd5IfsCdWT3JRtJHRwbA', '0', '6516435979', '2011-07-30 05:13:00', 'Tudisco');
@@ -158,3 +199,19 @@ INSERT INTO `users` VALUES ('158', '0', 'Grove Lane', null, 'YK61 3HN', 'Manches
 INSERT INTO `users` VALUES ('159', '1', 'PineRoad', null, 'VR24 9LQ', 'Glasgow', '2003-09-02', '0', 'Y.Riegel@hotmail.org', 'Katarzyna', 'F', '27TEw20sGnOTOx7dDq8ilT4GMfYpgKOryprVXhHSRsfLn1h5ZN63xjivWvFKFF8S64TBOTSdajaDjaRms0BdZZAKJ1lHc0BVsv5UoOhhqWxqucdHaISYopfmyFef2WS28XMYQngQflbBOrUHvPJehJ4SumfAUuOrqK5rU8xBep2pwEak15XPtSZBpFrgg7vzxrbqXzzNOyf', '0', '5232288671', '2007-10-03 08:52:00', 'Daley');
 INSERT INTO `users` VALUES ('160', '1', 'Kings Ave', null, 'BH96 3RO', 'Cardiff', '2008-04-23', '0', 'FrankArcher@web.dk', 'Mike', 'M', 'VpHSoGQVUDk76dJOaT8bQjIUvEHsRycl8sw3CneI01', '1', '9580129364', '2000-03-02 04:54:00', 'DelRosso');
 INSERT INTO `users` VALUES ('161', '1', 'CedarRoad', null, 'AY15 3YU', 'Bradford', '2008-10-08', '0', 'Ton.Plantz2@web.cn', 'Pauline', 'F', 'zsG4f2NwMjTbSzBDiTMwaUJ6M5vhxuXsdT7LqJFRPJi4b0YWNqa5hXt4ph1K1O68OFCUTH2QVX2Cj0tE0phy3rIHf8ABCaZWbbpDSW3UoYQXB2VwQGrdangJD4VYnS2TT2EH7VtTF7rIHjRyPLBxJ4gRcVQGhzZAHBxFCLXpJt4SJ6Roh5w1C7LDZhj27xi', '1', '5268843317', '2008-04-26 09:17:00', 'Huston');
+
+-- ----------------------------
+-- Table structure for `user_roles`
+-- ----------------------------
+DROP TABLE IF EXISTS `user_roles`;
+CREATE TABLE `user_roles` (
+  `user_id` bigint(20) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  UNIQUE KEY `user_id` (`user_id`,`name`) USING BTREE,
+  KEY `FK734299493E9CE7F1` (`user_id`) USING BTREE,
+  CONSTRAINT `FK734299493E9CE7F1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+-- ----------------------------
+-- Records of user_roles
+-- ----------------------------
