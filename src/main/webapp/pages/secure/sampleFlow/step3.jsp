@@ -9,22 +9,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Change Password</title>
+<title>Step 3</title>
 </head>
 <body>
-	<form:form modelAttribute="passwordForm"
-		 method="post">
+	<form:form method="post">
 		<fieldset>
-			<legend>Step 1</legend>
-
+			<legend>Step 3</legend>
 			<div class="control-group">
 				<div class="controls">
-					<input type="submit" name="_eventId_cancel" value="Cancel" />
-					<input type="submit" name="_eventId_proceed" value="Proceed" /> 
+					<input class="btn" type="submit" name="_eventId_proceed" value="Finish" />
 				</div>
 			</div>
 		</fieldset>
 	</form:form>
-
 </body>
 </html>

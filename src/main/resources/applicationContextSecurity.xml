@@ -26,6 +26,8 @@
 		<security:logout logout-success-url="/public/loadHome.do" />
 		<security:access-denied-handler
 			error-page="/public/loadAccessDenied.do" />
+		<security:session-management
+			invalid-session-url="/public/sessionTimeout.do" />
 	</security:http>
 
 	<bean id="bcryptPasswordEncoder" class="uk.co.certait.spring.service.util.BCryptPasswordEncoder" />
@@ -36,7 +38,8 @@
 			<security:password-encoder ref="bcryptPasswordEncoder" />
 		</security:authentication-provider>
 	</security:authentication-manager>
-	
-	<security:global-method-security pre-post-annotations="enabled"/>
-	
+
+	<security:global-method-security
+		pre-post-annotations="enabled" />
+
 </beans>

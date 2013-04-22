@@ -200,12 +200,6 @@
 			<artifactId>webapp-runner</artifactId>
 			<version>7.0.34.1</version>
 			<scope>provided</scope>
-<!-- 			<exclusions>
-				<exclusion>
-					<groupId>de.javakaffee.msm</groupId>
-					<artifactId>memcached-session-manager-project</artifactId>
-				</exclusion>
-			</exclusions> -->
 		</dependency>
 		<dependency>
 			<groupId>commons-lang</groupId>
@@ -228,6 +222,15 @@
 		<dependency>
 			<groupId>velocity-tools</groupId>
 			<artifactId>velocity-tools</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.easymock</groupId>
+			<artifactId>easymock</artifactId>
+			<version>3.1</version>
 		</dependency>
 	</dependencies>
 

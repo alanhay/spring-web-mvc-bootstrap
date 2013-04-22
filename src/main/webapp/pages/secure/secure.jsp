@@ -13,6 +13,6 @@
 <body>
 	<h1>Secure Page</h1>
 
-	Requires Logged in User.
+	<a class="btn" href="secure/sampleFlow.do">Sample Web Flow Process</a>
 </body>
 </html>

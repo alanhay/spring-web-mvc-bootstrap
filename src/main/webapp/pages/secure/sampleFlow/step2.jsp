@@ -9,18 +9,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Change Password</title>
+<title>Step 2</title>
 </head>
 <body>
-	<form:form modelAttribute="passwordForm"
-		action="flows/admin/chalet" method="post">
+	<form:form method="post">
 		<fieldset>
-			<legend>Step 3</legend>
-
+			<legend>Step 2</legend>
 			<div class="control-group">
 				<div class="controls">
-					<input type="submit" name="_eventId_cancel" value="Cancel" />
-					<input type="submit" name="_eventId_proceed" value="Proceed" /> 
+					<input class="btn" type="submit" name="_eventId_cancel" value="Previous" /> 
+					<input  class="btn" type="submit" name="_eventId_proceed" value="Next" />
 				</div>
 			</div>
 		</fieldset>

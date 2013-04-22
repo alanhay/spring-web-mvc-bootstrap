@@ -12,7 +12,6 @@ http://web-bootstrap-trial.herokuapp.com
 
 
 
-
 ##Deploying to Heroku
 
 Deploying to Heroku should be fairly straightforward. Most of the required configuration is in place.

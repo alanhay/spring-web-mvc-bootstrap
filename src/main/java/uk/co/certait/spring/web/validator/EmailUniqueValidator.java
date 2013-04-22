@@ -22,11 +22,19 @@ public class EmailUniqueValidator implements Validator {
 	@Override
 	public void validate(Object object, Errors errors) {
 		User edited = (User) object;
-		User user = userService.findByEmailAddress(edited.getEmailAddress());
+		User user = findByEmailAddress(edited.getEmailAddress());
 
-		if (user != null && user.getId() != edited.getId()) {
+		if (user != null && ! user.getId().equals(edited.getId())) {
 			errors.rejectValue("emailAddress", "email.not.unique");
 		}
 
+	}
+
+	public User findByEmailAddress(String emailAddress) {
+		return userService.findByEmailAddress(emailAddress);
+	}
+
+	protected void setUserService(UserService userService) {
+		this.userService = userService;
 	}
 }

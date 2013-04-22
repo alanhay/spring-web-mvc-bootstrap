@@ -89,8 +89,27 @@
 			</div>
 		</div>
 		<script>
-			$('.dropdown-toggle').dropdown();
-			$('input[type=text]:enabled:first').focus();
+			$(document).ready(function() {
+				
+				/**AUTO SELECT FIRST TEXT INPUT ON ANY PAGE**/
+				$('input[type=text]:enabled:first').focus();
+				
+				/*REGISTER A GLOBAL AJAX HANDLER FOR SESSION TIMEOUT*/
+				$(function () {
+				    //setup ajax error handling
+				    $.ajaxSetup({
+				        error: function (x, status, error) {
+				            if (x.status == 403) {
+				                //alert("Sorry, your session has expired. Please login again to continue");
+				                window.location.reload();
+				            }
+				            else {
+				                alert("An error occurred: " + status + "\nError: " + error);
+				            }
+				        }
+				    });
+				});
+			});
 		</script>
 	</div>
 </body>

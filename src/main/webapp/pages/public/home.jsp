@@ -12,6 +12,23 @@
 <title>Application Home</title>
 </head>
 <body>
-	<h1>Home Page</h1>
+	<div class="hero-unit">
+	  <h1>Welcome</h1>
+	  <br/>
+	  <p>Spring MVC, Spring WebFLow, Spring Data and Spring Security Sample Application</p>
+	  <br/>
+	  <p>
+			<sec:authorize access="! isAuthenticated()">
+		    <a class="btn btn-primary btn-large" href="public/loadLogin.do">
+		     	Login
+		    </a>
+			</sec:authorize>
+			<sec:authorize access="hasRole('ROLE_USER')">
+		    <a class="btn btn-primary btn-large">
+		     	Do Stuff
+		    </a>
+		</sec:authorize>
+	  </p>
+	</div>
 </body>
 </html>
